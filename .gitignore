@@ -1,0 +1,4 @@
+.idea/
+logs/
+.ipynb_checkpoints/
+.pytest_cache
