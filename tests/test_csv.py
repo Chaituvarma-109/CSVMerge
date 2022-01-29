@@ -1,25 +1,22 @@
 import pytest
-
 from src.csvauto import CSVMerge
 
 
 class TestFile:
-    def test_file_not_found(self):
+    def test_dir_not_found(self):
         with pytest.raises(FileNotFoundError):
-            CSVMerge(r"C:\Users\chait\Desktop\CSV_Automation_pkg\test_di", 'output.csv',
-                          r"C:\Users\chait\Desktop\CSV_Automation_pkg")
+            CSVMerge(r"..\test_di", 'output.csv')
 
     def test_dirs_not_found(self):
         with pytest.raises(FileNotFoundError):
-            CSVMerge(r"C:\Users\chait\Desktop\CSV_Automation_pkg\test_dir", 'output.csv',
-                          r"C:\Users\chait\Desktop\CSV_Automation_pkg").merge()
+            CSVMerge(r"..\test_dir2", 'output.csv').merge()
+
+    def test_output_filename(self):
+        with pytest.raises(FileNotFoundError):
+            CSVMerge(r"..\test_dir").write_file()
 
     def test_not_csv(self):
-        with pytest.raises(ValueError):
-            CSVMerge(r"C:\Users\chait\Desktop\CSV_Automation_pkg\test_dir", 'output.csv',
-                          r"C:\Users\chait\Desktop\CSV_Automation_pkg").check_file('hi.txt')
+        assert CSVMerge(r"..\test_dir", 'output.csv').check_file('hi.txt') is False
 
     def test_is_csv(self):
-        res = CSVMerge(r"C:\Users\chait\Desktop\CSV_Automation_pkg\test_dir", 'output.csv',
-                            r"C:\Users\chait\Desktop\CSV_Automation_pkg").check_file('dataset1.csv')
-        assert res is True
+        assert CSVMerge(r"..\test_dir", 'output.csv').check_file('dataset1.csv') is True

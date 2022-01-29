@@ -9,22 +9,20 @@ class CSVMerge:
     This programme combines all data in MULTIPLE CSV files into ONE CSV file.
     """
 
-    def __init__(self, csv_dir_path: str, output_csv_filename: str, output_csv_filepath: str, header: bool = True):
+    def __init__(self, csv_dir_path: str, output_csv_filename: str = None, header: bool = True):
         """
 
         Args:
             csv_dir_path: Path to directory where CSV files are located.
             output_csv_filename: Name of the result file.
-            output_csv_filepath: Path to where output csv file is located.
             header: if True first row of all the csv files except for first files.If it is not True then it will merge
                     all files as they are.
         """
         self.path = csv_dir_path
         self.dest_filename = output_csv_filename
-        self.dest_file_path = output_csv_filepath
         self.header = header
 
-        self.dirs = os.listdir(csv_dir_path)
+        self.dirs = os.listdir(self.path)
         self.dir_lst = list()
         self.all_csv_files: list = list()
         self.content_lst = list()
@@ -74,7 +72,7 @@ class CSVMerge:
         """
         if filename.endswith('.csv'):
             return True
-        raise ValueError("Not a CSV file.")
+        return False
 
     def check_dir(self, dirname: str):
         """
@@ -90,7 +88,7 @@ class CSVMerge:
         dir_path = os.path.join(self.path, dirname)
         if os.path.isdir(dir_path):
             return True
-        raise ValueError("Not Directory.")
+        return False
 
     def read_file(self) -> None:
         """
@@ -112,9 +110,13 @@ class CSVMerge:
         Returns: None
 
         """
-        with open(self.dest_filename, 'a', newline='') as fp:
-            content_write = csv.writer(fp)
-            content_write.writerows(self.content_lst)
+        if self.dest_filename:
+            dest_file_path = self.file_path(self.path, self.dest_filename)
+            with open(dest_file_path, 'a', newline='') as fp:
+                content_write = csv.writer(fp)
+                content_write.writerows(self.content_lst)
+        else:
+            raise FileNotFoundError("Check your file path or file name.")
 
     def get_csv_files(self, dir_list: list) -> None:
         """
@@ -147,6 +149,8 @@ class CSVMerge:
                 elif self.check_file(dir_):
                     file_path = self.file_path(self.path, dir_)
                     self.all_csv_files.append(file_path)
+                else:
+                    raise ValueError("Check file or directory")
             self.get_csv_files(self.dir_lst)
         else:
             raise FileNotFoundError
