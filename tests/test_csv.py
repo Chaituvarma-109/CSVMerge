@@ -5,18 +5,18 @@ from src.csvauto import CSVMerge
 class TestFile:
     def test_dir_not_found(self):
         with pytest.raises(FileNotFoundError):
-            CSVMerge(r"..\test_di", 'output.csv')
+            CSVMerge("test_di", 'output.csv')
 
     def test_dirs_not_found(self):
         with pytest.raises(FileNotFoundError):
-            CSVMerge(r"..\test_dir2", 'output.csv').merge()
+            CSVMerge("test_dir2", 'output.csv').merge()
 
     def test_output_filename(self):
         with pytest.raises(FileNotFoundError):
-            CSVMerge(r"..\test_dir").write_file()
+            CSVMerge("test_dir").write_file()
 
     def test_not_csv(self):
-        assert CSVMerge(r"..\test_dir", 'output.csv').check_file('hi.txt') is False
+        assert CSVMerge("test_dir", 'output.csv').check_file('hi.txt') is False
 
     def test_is_csv(self):
-        assert CSVMerge(r"..\test_dir", 'output.csv').check_file('dataset1.csv') is True
+        assert CSVMerge("test_dir", 'output.csv').check_file('dataset1.csv') is True
