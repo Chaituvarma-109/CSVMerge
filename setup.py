@@ -19,6 +19,6 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     package_dir={"": "src"},
-    packages=['CSV'],
+    packages=['CSVMerge'],
     python_requires=">=3.9",
 )
