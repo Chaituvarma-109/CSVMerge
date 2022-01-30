@@ -1,5 +1,5 @@
 import pytest
-from src.csvauto import CSVMerge
+from src.CSVMerge.csvauto import CSVMerge
 
 
 class TestFile:

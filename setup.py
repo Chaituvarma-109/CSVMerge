@@ -5,14 +5,14 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 
 setuptools.setup(
-    name="example-package-YOUR-USERNAME-HERE",
+    name="CSVMerge-pydev",
     version="0.0.1",
     author="Chaitanya Varma",
-    author_email="author@example.com",
+    author_email="justme.python@gmail.com",
     description="Package for Merging Multiple CSV files.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/Chaituvarma-109/CSVMerge",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

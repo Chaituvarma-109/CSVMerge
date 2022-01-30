@@ -1,4 +1,4 @@
-from src.csvauto import CSVMerge
+from src.CSVMerge.csvauto import CSVMerge
 
 
 def main():
