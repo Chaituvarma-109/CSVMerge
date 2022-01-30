@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="CSVMerge-pydev",
-    version="0.0.1",
+    version="0.0.2",
     author="Chaitanya Varma",
     author_email="justme.python@gmail.com",
     description="Package for Merging Multiple CSV files.",
@@ -19,6 +19,6 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     package_dir={"": "src"},
-    packages=setuptools.find_packages(where="src"),
+    packages=['CSVMerge'],
     python_requires=">=3.9",
 )
