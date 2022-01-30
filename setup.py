@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="CSV-pydev",
-    version="0.0.2",
+    version="0.0.3",
     author="Chaitanya Varma",
     author_email="justme.python@gmail.com",
     description="Package for Merging Multiple CSV files.",
@@ -22,4 +22,3 @@ setuptools.setup(
     packages=['CSV'],
     python_requires=">=3.9",
 )
-# RbZjDQHTkUU@asN!%2Sr
