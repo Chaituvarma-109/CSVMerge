@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 
 setuptools.setup(
-    name="CSVMerge-pydev",
+    name="CSV-pydev",
     version="0.0.2",
     author="Chaitanya Varma",
     author_email="justme.python@gmail.com",
@@ -19,6 +19,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     package_dir={"": "src"},
-    packages=['CSVMerge'],
+    packages=['CSV'],
     python_requires=">=3.9",
 )
+# RbZjDQHTkUU@asN!%2Sr

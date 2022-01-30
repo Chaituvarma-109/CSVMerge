@@ -1,10 +1,10 @@
-from src.CSVMerge.csvauto import CSVMerge
+from src.CSVMerge.csvauto import CSV
 
 
 def main():
     path = "test_dir"
 
-    start = CSVMerge(path, 'output.csv')
+    start = CSV(path, 'output.csv')
     start.merge()
 
 

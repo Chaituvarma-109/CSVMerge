@@ -2,7 +2,7 @@ import csv
 import os
 
 
-class CSVMerge:
+class CSV:
     """
     Custom CSV Automation class for merging  CSV files.
     Mainly used, when the data is stored in multiple CSV files.

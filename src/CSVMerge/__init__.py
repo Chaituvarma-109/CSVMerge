@@ -1,0 +1,1 @@
+from .csvauto import CSV
